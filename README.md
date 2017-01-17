@@ -36,7 +36,8 @@ With that in mind, let's show you an example of installing it. You can do this m
 local BetterGuiService = require(616387491) -- Download our module from the repository 
 
 local Replicator = BetterGuiService:Setup() -- Run the setup function. This is neccesary! 
-Repliactor.Name = "GuiService" -- The name, this is important. 
+Replicator.Name = "GuiService" -- The name, this is important. 
+
 for _,v in ipairs(game.Players:GetPlayers()) do -- Loop through all current players
 	if not (v:FindFirstChild("GuiService")) then -- If they DON'T have it
 		Replicator:Clone().Parent = v -- Clone it
