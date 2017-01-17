@@ -12,6 +12,8 @@ module:ImportAnimation(AnimationModule)
 ```
 **AnimationModule [userdata]:** The module that holds animation data, [you can get the template here](https://github.com/PTBStudios/Enhanced-GUI-Service/blob/master/ButtonAnimations/Template.lua)
 
+This will let you import a custom animation into the service.
+
 -------------------------
 
 ```lua
@@ -21,7 +23,17 @@ module:HookButtonAnimation(Button, AnimationName)
 
 **AnimationName [string]:** The name of the animation you want to load
 
+This function will setup the animations for your button of choice.
+
 -------------------------
+
+```lua
+module:GetAllButtionAnimations()
+```
+Returns a table full of animation names (strings).
+
+-------------------------
+
 
 
 ## Installation 
@@ -57,7 +69,12 @@ Now from a client (localscript) all you need to do is:
 
 ```lua
 local Player = game.Players.LocalPlayer -- Grab the local player
-local GuiModule = require(Player:WaitForChild("GuiService")) -- Or if you changed the name, use that instead
+local GuiModule = require(Player:WaitForChild("GuiService", 15)) -- Or if you changed the name, use that instead
+if GuiModule then -- We always want to have a backup plan if it doesn't load.
+	-- etc
+end
 ```
+
+
 
 More features coming soon. Follow us on Twitter: [@PTBStudios](https://twitter.com/PTBStudios)
