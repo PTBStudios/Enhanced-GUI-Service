@@ -23,6 +23,7 @@
 
 local module = {}
 local HasSetup = false
+local Host = script
 	local ButtonAnimations = script:WaitForChild("ButtonAnimations")
 	local Version = script.Version.Value
 	local PatchFcn = require(script:WaitForChild("PatchService"))
