@@ -23,8 +23,6 @@
 
 local module = {}
 local HasSetup = false
-local UpdatingID = 619906492 -- Don't change this or you will ruin the integrity of the module. If you want to disable auto updating, look below
-local Host = script
 	local ButtonAnimations = script:WaitForChild("ButtonAnimations")
 	local Version = script.Version.Value
 	local PatchFcn = require(script:WaitForChild("PatchService"))
