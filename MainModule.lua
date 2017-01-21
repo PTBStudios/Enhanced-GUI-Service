@@ -1,3 +1,26 @@
+--[[
+	Read documentation:
+	github.com/PTBStudios/Enhanced-GUI-Service/
+	
+			              ,----,.             
+		        ,--,    ,'   ,' |             
+		      ,--.'|  ,'   .'   |  .--.--.    
+		   ,--,  | :,----.'    .' /  /    '.  
+		,---.'|  : '|    |   .'  |  :  /`. /  
+		|   | : _' |:    :  |--, ;  |  |--`   
+		:   : |.'  |:    |  ;.' \|  :  ;_     
+		|   ' '  ; :|    |      | \  \    `.  
+		'   |  .'. |`----'.'\   ;  `----.   \ 
+		|   | :  | '  __  \  .  |  __ \  \  | 
+		'   : |  : ;/   /\/  /  : /  /`--'  / 
+		|   | '  ,// ,,/  ',-   .'--'.     /  
+		;   : ;--' \ ''\       ;   `--'---'   
+		|   ,/      \   \    .'               
+		'---'        `--`-,-'                 
+		(and ptb)
+--]]
+
+
 local module = {}
 local HasSetup = false
 local UpdatingID = 619906492 -- Don't change this or you will ruin the integrity of the module. If you want to disable auto updating, look below
@@ -7,7 +30,6 @@ local Host = script
 	local PatchFcn = require(script:WaitForChild("PatchService"))
 
 -- Configuration
-local AllowUpdating = true -- If you set this to false, the script won't automatically update. You won't get our awesome updates but your server will be more secure. 
 local AllowPrinting = true -- Setting this to false will hide all the debug spam 
 
 -- More in-depth print function that shows the script name
@@ -39,7 +61,7 @@ local function Setup()
 			HasSetup = true
 			
 			local MeMyselfAndI = Host:Clone()
-			return MeMyselfAndI -- [[[[[[[[[[[[[[ This only returns nil if I use loadasset() ]]]]]]]]]]]]]]
+			return MeMyselfAndI 
 		end
 	end
 
@@ -63,7 +85,7 @@ end
 
 function module:HookButtonAnimation(buttonobject, animationtype)
 	Setup()
-	if HasSetup and buttonobject and animationtype then
+	if HasSetup then
 
 		-- First we're going to see if animationtype is a string or an object
 		if type(animationtype) == "string" then
@@ -86,7 +108,7 @@ function module:HookButtonAnimation(buttonobject, animationtype)
 			else
 				RealPrint("The -animationtype- you tried submitting was not found. :L")
 			end
-
+		
 		elseif type(animationtype) == "userdata"  then-- Now to see if it's a object
 			if animationtype:IsA("ModuleScript") then
 				local NameFind = animationtype.Name
@@ -100,6 +122,7 @@ function module:HookButtonAnimation(buttonobject, animationtype)
 				RealPrint("Sorry, HookButtonAnimation() only supports strings or modulescripts.")
 			end
 		end
+		
 	elseif (HasSetup == false) then 
 		RealPrint("Tried running module:HookButtonAnimation() before setting up. Run module:Setup()!!!!")
 	end	
