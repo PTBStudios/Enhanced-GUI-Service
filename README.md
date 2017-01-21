@@ -1,11 +1,12 @@
 # Enhanced-GUI-Service
 
-**Repository Code: 616387491 (if you don't know what to do with this, scroll down to the Installation tutorial.)** 
+Link to our model: 
 
-This is a service that allows for more flexbility and adds more functionality to ROBLOX's GUI engine. The source itself is currently closed-source but we (PTBStudios) plan on opening the source to everyone shortly.
+This is a service that allows for more flexbility and adds more functionality to ROBLOX's GUI engine. 
 
 ## Current Features
-Currently the only feature available is a bootstrapper that automates button animations and makes it easy to create your own animations.
+Currently the only feature available is a bootstrapper that automates button animations and makes it easy to create your own animations. We plan on adding more as time goes on. 
+
 ### Easy-Peasy Button Animations
 This feature will make animating your buttons A LOT easier and way more efficient. First make sure to Install (see below) the script, then you can use this API:
 
@@ -24,7 +25,7 @@ module:HookButtonAnimation(Button, AnimationName)
 ```
 **Button [userdata]:** The TextButton object
 
-**AnimationName [string]:** The name of the animation you want to load
+**AnimationName [string] or [userdata]:** The name or modulescript object of the animation you want to load
 
 This function will setup the animations for your button of choice.
 
@@ -48,9 +49,15 @@ With that in mind, let's show you an example of installing it. You can do this m
 
 **FROM A SERVER SCRIPT!!**
 ```lua
-local BetterGuiService = require(616387491) -- Download our module from the repository 
+local BetterGuiService = workspace.GuiModuleHere -- Having it saved in the server will prevent everything  from breaking if ROBLOX's insertservice acts up (which is a lot). All versions are reversable with previous plugins
+local AutoUpdate = true  -- Set to false to turn off autoupdating
 
-local Replicator = BetterGuiService:Setup() -- Run the setup function. This is neccesary! 
+if not (game:GetService("RunService"):IsStudio()) and (AutoUpdate) then 
+	BetterGuiService = require(616387491) -- this will download the latest version
+end
+
+local Replicator = BetterGuiService:Setup() -- This isn't exactly neccesary (running any function will have it load up now), but it returns a cloned version of it so we can replicate it. Whatever is your cup of tea, I suppose. 
+
 Replicator.Name = "GuiService" -- The name, this is important. 
 
 for _,v in ipairs(game.Players:GetPlayers()) do -- Loop through all current players
