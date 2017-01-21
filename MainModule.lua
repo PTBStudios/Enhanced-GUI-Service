@@ -1,6 +1,6 @@
 local module = {}
 local HasSetup = false
-local UpdatingID = 0 -- Don't change this or you will ruin the integrity of the module. If you want to disable auto updating, look below
+local UpdatingID = 619906492 -- Don't change this or you will ruin the integrity of the module. If you want to disable auto updating, look below
 local Host = script
 	local ButtonAnimations = script:WaitForChild("ButtonAnimations")
 	local Version = script.Version.Value
@@ -24,6 +24,7 @@ end
 -- Function that will run when the module needs to install itself. Without this nothing will replicate properly. 
 local function Setup()
 	if not (HasSetup) then -- That way we won't run multiple times!!
+
 		local function isLocalEnv()
 		    local r = ({pcall(function() return not not game.Players.LocalPlayer end)})
 		    return r[1] and r[2]
@@ -38,7 +39,7 @@ local function Setup()
 			HasSetup = true
 			
 			local MeMyselfAndI = Host:Clone()
-			return MeMyselfAndI
+			return MeMyselfAndI -- [[[[[[[[[[[[[[ This only returns nil if I use loadasset() ]]]]]]]]]]]]]]
 		end
 	end
 
