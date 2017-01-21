@@ -1,6 +1,6 @@
 # Enhanced-GUI-Service
 
-Link to our model: 
+Link to our model: https://www.roblox.com/library/616387491/PTBs-GUI-Enhancer?rbxp=64061898
 
 This is a service that allows for more flexbility and adds more functionality to ROBLOX's GUI engine. 
 
