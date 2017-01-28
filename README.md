@@ -52,7 +52,7 @@ With that in mind, let's show you an example of installing it. You can do this m
 
 **FROM A SERVER SCRIPT!!**
 ```lua
-local BetterGuiService = workspace.GuiModuleHere -- Having it saved in the server will prevent everything  from breaking if ROBLOX's insertservice acts up (which is a lot). All versions are reversable with previous plugins
+local BetterGuiService = require(workspace.GuiModuleHere) -- Having it saved in the server will prevent everything  from breaking if ROBLOX's insertservice acts up (which is a lot). All versions are reversable with previous plugins
 local AutoUpdate = true  -- Set to false to turn off autoupdating
 
 if not (game:GetService("RunService"):IsStudio()) and (AutoUpdate) then 
